@@ -1,0 +1,22 @@
+import React from "react";
+import { NavLink } from "react-router-dom";
+
+function NavBar() {
+  return (
+  <div className="navbar">
+    <NavLink to="/" exact>
+      Home
+    </NavLink>
+    <NavLink to="/" exact>
+      Exercises
+    </NavLink>
+    <NavLink to="/" exact>
+      Add Exercise
+    </NavLink>
+    <NavLink to="/" exact>
+      Today's Workout
+    </NavLink>
+  </div>
+  )}
+
+export default NavBar;
