@@ -7,13 +7,13 @@ function NavBar() {
     <NavLink to="/" exact>
       Home
     </NavLink>
-    <NavLink to="/" exact>
+    <NavLink to="/exercises" exact>
       Exercises
     </NavLink>
-    <NavLink to="/" exact>
+    <NavLink to="/addexercise" exact>
       Add Exercise
     </NavLink>
-    <NavLink to="/" exact>
+    <NavLink to="/todaysworkout" exact>
       Today's Workout
     </NavLink>
   </div>

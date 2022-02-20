@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import NavBar from "./NavBar";
 import Home from "./Home";
@@ -7,6 +7,23 @@ import AddExercise from "./AddExercise";
 import TodaysWorkout from "./TodaysWorkout";
 
 function App() {
+  const [exercises, setExercises] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:3000/exercises')
+      .then((r) => r.json())
+      .then((exercises) => setExercises(exercises));
+  }, []);
+
+
+
+
+
+
+
+
+
+
   return (   
     <div>
       <NavBar />
@@ -14,13 +31,13 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/exercises">
-          <Exercises />
+        <Route exact path="/exercises">
+          <Exercises exercises={exercises} />
         </Route>
-        <Route path="/addexercise">
+        <Route exact path="/addexercise">
           <AddExercise />
         </Route>
-        <Route path="/todaysworkout">
+        <Route exact path="/todaysworkout">
           <TodaysWorkout />
         </Route>
     </Switch>
