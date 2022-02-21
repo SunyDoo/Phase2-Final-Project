@@ -8,6 +8,11 @@ import TodaysWorkout from "./TodaysWorkout";
 
 function App() {
   const [exercises, setExercises] = useState([])
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  
+  function handleCategoryChange(category){
+    setSelectedCategory(category)
+  }
 
   useEffect(() => {
     fetch('http://localhost:3000/exercises')
@@ -15,13 +20,24 @@ function App() {
       .then((exercises) => setExercises(exercises));
   }, []);
 
+const todaysExercises = exercises.filter((exercise => exercise.today))
 
+const exerciesToDisplay = exercises.filter((exercise) => {
+  if (selectedCategory === "All") return true;
 
+  return exercise.musclegroup === selectedCategory;
+});
 
-
-
-
-
+function handleUpdate(updatedExercise) {
+  const updatedExercises = exercises.map((exercise) => {
+    if (exercise.id === updatedExercise.id) {
+      return updatedExercise;
+    } else {
+      return exercise;
+    }
+  });
+  setExercises(updatedExercises);
+}
 
 
   return (   
@@ -32,13 +48,13 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/exercises">
-          <Exercises exercises={exercises} />
+          <Exercises exercises={exerciesToDisplay}  onChangeToday={handleUpdate} selectedCategory={selectedCategory} handleCategoryChange={handleCategoryChange} />
         </Route>
         <Route exact path="/addexercise">
           <AddExercise />
         </Route>
         <Route exact path="/todaysworkout">
-          <TodaysWorkout />
+          <TodaysWorkout exercises={todaysExercises} />
         </Route>
     </Switch>
     </div>
