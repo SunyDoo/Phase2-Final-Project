@@ -38,6 +38,9 @@ function handleUpdate(updatedExercise) {
   });
   setExercises(updatedExercises);
 }
+function handleAdd(newExercise) {
+  setExercises([...exercises, newExercise]);
+}
 
 
   return (   
@@ -51,10 +54,10 @@ function handleUpdate(updatedExercise) {
           <Exercises exercises={exerciesToDisplay}  onChangeToday={handleUpdate} selectedCategory={selectedCategory} handleCategoryChange={handleCategoryChange} />
         </Route>
         <Route exact path="/addexercise">
-          <AddExercise />
+          <AddExercise onAddExercise={handleAdd}/>
         </Route>
         <Route exact path="/todaysworkout">
-          <TodaysWorkout exercises={todaysExercises} />
+          <TodaysWorkout exercises={todaysExercises} onChangeToday={handleUpdate} />
         </Route>
     </Switch>
     </div>
