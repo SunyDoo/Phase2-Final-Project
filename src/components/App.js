@@ -7,61 +7,68 @@ import AddExercise from "./AddExercise";
 import TodaysWorkout from "./TodaysWorkout";
 
 function App() {
-  const [exercises, setExercises] = useState([])
+  const [exercises, setExercises] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  
-  function handleCategoryChange(category){
-    setSelectedCategory(category)
+
+  function handleCategoryChange(category) {
+    setSelectedCategory(category);
   }
 
   useEffect(() => {
-    fetch('http://localhost:3000/exercises')
+    fetch("http://localhost:3000/exercises")
       .then((r) => r.json())
       .then((exercises) => setExercises(exercises));
   }, []);
 
-const todaysExercises = exercises.filter((exercise => exercise.today))
+  const todaysExercises = exercises.filter((exercise) => exercise.today);
 
-const exerciesToDisplay = exercises.filter((exercise) => {
-  if (selectedCategory === "All") return true;
+  const exercisesToDisplay = exercises.filter((exercise) => {
+    if (selectedCategory === "All") return true;
 
-  return exercise.musclegroup === selectedCategory;
-});
-
-function handleUpdate(updatedExercise) {
-  const updatedExercises = exercises.map((exercise) => {
-    if (exercise.id === updatedExercise.id) {
-      return updatedExercise;
-    } else {
-      return exercise;
-    }
+    return exercise.musclegroup === selectedCategory;
   });
-  setExercises(updatedExercises);
-}
-function handleAdd(newExercise) {
-  setExercises([...exercises, newExercise]);
-}
 
+  function handleUpdate(updatedExercise) {
+    const updatedExercises = exercises.map((exercise) => {
+      if (exercise.id === updatedExercise.id) {
+        return updatedExercise;
+      } else {
+        return exercise;
+      }
+    });
+    setExercises(updatedExercises);
+  }
+  function handleAdd(newExercise) {
+    setExercises([...exercises, newExercise]);
+  }
 
-  return (   
+  return (
     <div>
       <NavBar />
-    <Switch>
+      <Switch>
         <Route exact path="/">
           <Home />
         </Route>
         <Route exact path="/exercises">
-          <Exercises exercises={exerciesToDisplay}  onChangeToday={handleUpdate} selectedCategory={selectedCategory} handleCategoryChange={handleCategoryChange} />
+          <Exercises
+            exercises={exercisesToDisplay}
+            onChangeToday={handleUpdate}
+            selectedCategory={selectedCategory}
+            handleCategoryChange={handleCategoryChange}
+          />
         </Route>
         <Route exact path="/addexercise">
-          <AddExercise onAddExercise={handleAdd}/>
+          <AddExercise onAddExercise={handleAdd} />
         </Route>
         <Route exact path="/todaysworkout">
-          <TodaysWorkout exercises={todaysExercises} onChangeToday={handleUpdate} />
+          <TodaysWorkout
+            exercises={todaysExercises}
+            onChangeToday={handleUpdate}
+          />
         </Route>
-    </Switch>
+      </Switch>
     </div>
-  )
+  );
 }
 
 export default App;

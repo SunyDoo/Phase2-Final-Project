@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# Phase2-Final-Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Sunil's Gym
 
-## Available Scripts
+### Overview
 
-In the project directory, you can run:
+Sunil's Card Shop will be a webpage for users who want to plan out their workout at the gym.
+Visitors will be able taken to the homepage of the site upon arrival and then can navigate through the various "pages" of the site via the navbar at the top of the page.
+Users will also be able to submit a form to create their own exercise to add to the list of available exercises. They will enter the exercise's information as well as a link to a picture of the exercise. They will also be able to immediately add the new exercise to their workout plan for the day.
 
-### `npm start`
+### Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The page will load the homepage with a navbar at the top.
+The "Exercises" button will bring them all available exercises to choose from. There will also be a filter feature at the top, where users will be able to filter the exercises on screen based on the muscle group that the exercise to designed for.
+Each exercise will have a checkbox that will allow users to add the exercise to their workout plan for the day.
+The "Add Exercise" button will bring pull up a form that users can fill out to submit their own exercise to the list.
+The "Today's Workout" button will display all the exercises the user has selected to do for the day. The checkbox, if unchecked, will dynamically remove the exercise from the list.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Project Requirements
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Single page application using create-react-app
+2. 8 Total components keeping application organized
+3. 4 client-side routes, leading users from Home -> Exercises -> Add Exercise -> Today's Workout
+4. Exercises stored in json-server as a RESTful API for backend. Exercises pulled as GET request on page load. When new exercise to submitting, user submission will be added to database via "POST" request. When exercise is added to "Today's Workout", exercise database is updated via "PATCH" request.
+5. Application styled via react bootstrap
