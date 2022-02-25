@@ -6,7 +6,6 @@ import Exercises from "./Exercises";
 import AddExercise from "./AddExercise";
 import TodaysWorkout from "./TodaysWorkout";
 
-
 function App() {
   const [exercises, setExercises] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -45,7 +44,7 @@ function App() {
 
   return (
     <div>
-      <NavBar/>
+      <NavBar />
       <Switch>
         <Route exact path="/">
           <Home />

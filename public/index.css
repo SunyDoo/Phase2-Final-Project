@@ -24,3 +24,15 @@ nav a.active {
   justify-content: center;
   align-items: center;
 }
+
+.body {
+  background-color: white;
+}
+
+.card {
+  background: #e0e0e0;
+  display: inline-grid;
+  padding: 0px;
+  text-align: center;
+  margin-left: 10px;
+}
