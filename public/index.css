@@ -1,0 +1,10 @@
+nav a:hover,
+nav a:active {
+  color: red;
+  border-bottom: 2px solid red;
+}
+
+nav a.active {
+  background-color: rgb(56, 55, 63);
+  color: red;
+}

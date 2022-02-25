@@ -11,6 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.selected {
-  color: #ff0000;
+nav a.active {
+  background-color: black;
+  color: red;
 }

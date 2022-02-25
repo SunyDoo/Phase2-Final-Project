@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar'
 import { Container } from "react-bootstrap";
-import Nav from "react-bootstrap/Nav"
+// import Nav from "react-bootstrap/Nav"
 
 
 function NavBar() {
@@ -19,16 +19,16 @@ function NavBar() {
       </Navbar.Brand>
       <Navbar.Brand href="#home">Sunil's Gym</Navbar.Brand>
           <Container>
-            <NavLink to="/" exact >
+            <NavLink to="/" exact style={{ color: "white" }} >
                 Home
             </NavLink>
-            <NavLink to="/exercises" exact>
+            <NavLink to="/exercises" exact style={{ color: "white" }}>
                 Exercises
             </NavLink>
-            <NavLink to="/addexercise" exact>
+            <NavLink to="/addexercise" exact style={{ color: "white" }}>
                 Add Exercise
             </NavLink>
-            <NavLink to="/todaysworkout" exact>
+            <NavLink to="/todaysworkout" exact style={{ color: "white" }}>
                 Today's Workout
             </NavLink>
           </Container>
