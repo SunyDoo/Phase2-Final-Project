@@ -7,7 +7,7 @@ import Image from "react-bootstrap/Image";
 function NavBar() {
   return (
     <Navbar bg="dark" variant="dark">
-      <Navbar.Brand href="#home">
+      <Navbar.Brand>
         <Image
           src="https://i.pinimg.com/474x/82/7b/3b/827b3bfcc8bc92d96e208a25592186b1.jpg"
           width="75"
