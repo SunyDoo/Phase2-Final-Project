@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Navbar from 'react-bootstrap/Navbar'
+import Navbar from "react-bootstrap/Navbar";
 import { Container } from "react-bootstrap";
-import Image from 'react-bootstrap/Image'
+import Image from "react-bootstrap/Image";
 
 function NavBar() {
   return (
@@ -15,24 +15,24 @@ function NavBar() {
           className="d-inline-block align-top"
           alt="Sunil's Gym Logo"
           roundedCircle
-          />
+        />
       </Navbar.Brand>
-      <Navbar.Brand href="#home">Sunil's Gym</Navbar.Brand>
-          <Container>
-            <NavLink to="/" exact style={{ color: "white" }} >
-                Home
-            </NavLink>
-            <NavLink to="/exercises" exact style={{ color: "white" }}>
-                Exercises
-            </NavLink>
-            <NavLink to="/addexercise" exact style={{ color: "white" }}>
-                Add Exercise
-            </NavLink>
-            <NavLink to="/todaysworkout" exact style={{ color: "white" }}>
-                Today's Workout
-            </NavLink>
-          </Container>
-      </Navbar>
+      <Navbar.Brand>Sunil's Gym</Navbar.Brand>
+      <Container>
+        <NavLink to="/" exact style={{ color: "white" }}>
+          Home
+        </NavLink>
+        <NavLink to="/exercises" exact style={{ color: "white" }}>
+          Exercises
+        </NavLink>
+        <NavLink to="/addexercise" exact style={{ color: "white" }}>
+          Add Exercise
+        </NavLink>
+        <NavLink to="/todaysworkout" exact style={{ color: "white" }}>
+          Today's Workout
+        </NavLink>
+      </Container>
+    </Navbar>
   );
 }
 

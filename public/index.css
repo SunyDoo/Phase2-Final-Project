@@ -17,6 +17,15 @@ nav a.active {
   align-items: center;
 }
 
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .homeImage {
   height: 750px;
   width: 1000px;

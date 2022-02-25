@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 
 function AddExercise({ onAddExercise }) {
-
-  const [exercise, setExercise] = useState("")
-  const [image, setImage] = useState("")
-  const [musclegroup, setMuscleGroup] = useState("Chest")
-  const [checked, setChecked] = useState(false)
-
-
+  const [exercise, setExercise] = useState("");
+  const [image, setImage] = useState("");
+  const [musclegroup, setMuscleGroup] = useState("Chest");
+  const [checked, setChecked] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -15,68 +12,76 @@ function AddExercise({ onAddExercise }) {
       name: exercise,
       musclegroup: musclegroup,
       image: image,
-      today: checked
+      today: checked,
     };
-    fetch('http://localhost:3000/exercises', {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(exerciseData),
-  })
-    .then((r) => r.json())
-    .then((newExercise) => onAddExercise(newExercise));
-
+    fetch("http://localhost:3000/exercises", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(exerciseData),
+    })
+      .then((r) => r.json())
+      .then((newExercise) => onAddExercise(newExercise));
   }
 
   return (
-    <div className="container">
-      <form className="NewExercise"onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input
-          type="text"
-          name="exercise"
-          value={exercise}
-          onChange={(e) => setExercise(e.target.value)}
+    <>
+      <div className="container">
+        <form className="NewExercise" onSubmit={handleSubmit}>
+          <label>
+            Name:
+            <input
+              type="text"
+              name="exercise"
+              value={exercise}
+              onChange={(e) => setExercise(e.target.value)}
+            />
+          </label>
+          <label>
+            Image:
+            <input
+              type="text"
+              name="image"
+              value={image}
+              onChange={(e) => setImage(e.target.value)}
+            />
+          </label>
+          <label>
+            Muscle Group:
+            <select
+              name="category"
+              value={musclegroup}
+              onChange={(e) => setMuscleGroup(e.target.value)}
+            >
+              <option value="Chest">Chest</option>
+              <option value="Back">Back</option>
+              <option value="Abdominals">Abdominals</option>
+              <option value="Shoulders">Shoulders</option>
+              <option value="Legs">Legs</option>
+              <option value="Biceps">Biceps</option>
+              <option value="Triceps">Triceps</option>
+            </select>
+          </label>
+          <label>
+            Add To Today's Workout
+            <input
+              type="checkbox"
+              checked={checked}
+              onChange={() => setChecked((checked) => !checked)}
+            />
+          </label>
+          <button type="submit">Add Exercise</button>
+        </form>
+      </div>
+      <div className="homeContainer">
+        <img
+          src="https://i.pinimg.com/564x/54/cf/1e/54cf1e2aa2680092d0d18eb4cc5f9d73.jpg"
+          alt="Gym Logo"
+          className="homeImage"
         />
-      </label>
-      <label>
-        Image:
-        <input
-          type="text"
-          name="image"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
-        />
-      </label>
-      <label>
-        Muscle Group:
-        <select
-          name="category"
-          value={musclegroup}
-          onChange={(e) => setMuscleGroup(e.target.value)}
-        >
-          <option value="Chest">Chest</option>
-          <option value="Back">Back</option>
-          <option value="Abdominals">Abdominals</option>
-          <option value="Shoulders">Shoulders</option>
-          <option value="Legs">Legs</option>
-          <option value="Biceps">Biceps</option>
-          <option value="Triceps">Triceps</option>
-        </select>
-      </label>
-      <label>
-        Add To Today's Workout
-        <input
-          type="checkbox"
-          checked={checked}
-          onChange={() => setChecked((checked=>!checked))}
-        />
-      </label>
-      <button type="submit">Add Exercise</button>
-      </form>
-    </div>
+      </div>
+    </>
   );
 }
 
