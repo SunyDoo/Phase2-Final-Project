@@ -4,7 +4,7 @@
 
 ### Overview
 
-Sunil's Card Shop will be a webpage for users who want to plan out their workout at the gym.
+Sunil's Gym will be a webpage for users who want to plan out their workout at the gym.
 Visitors will be able taken to the homepage of the site upon arrival and then can navigate through the various "pages" of the site via the navbar at the top of the page.
 Users will also be able to submit a form to create their own exercise to add to the list of available exercises. They will enter the exercise's information as well as a link to a picture of the exercise. They will also be able to immediately add the new exercise to their workout plan for the day.
 
