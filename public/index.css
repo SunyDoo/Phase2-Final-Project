@@ -8,3 +8,19 @@ nav a.active {
   background-color: rgb(56, 55, 63);
   color: red;
 }
+
+.homeContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeImage {
+  height: 750px;
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
