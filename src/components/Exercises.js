@@ -1,7 +1,7 @@
 import React from "react";
 import ExerciseCard from "./ExerciseCard";
 import Filter from "./FilterExercise";
-import { CardGroup, Row, Col, Container, Card } from "react-bootstrap";
+import { Row, Container } from "react-bootstrap";
 
 function Exercises({
   exercises,

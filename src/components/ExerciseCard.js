@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CardGroup, Row, Col, Container, Card } from "react-bootstrap";
+import { Container, Card } from "react-bootstrap";
 
 function ExerciseCard({ exercise, onChangeToday }) {
   const [checked, setChecked] = useState(exercise.today);
